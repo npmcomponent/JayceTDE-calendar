@@ -1,7 +1,13 @@
 
 # calendar
 
-  A basic calendar
+A basic calendar
+  
+Only 2 Dependencies:
+- component/emitter
+- component/in-groups-of
+
+Additional controls can be added using additional components
 
 ## Installation
 
@@ -24,11 +30,11 @@ document.body.appendChild(cal.el);
 
 ## Events
 
-    - `render` () when the calendar is rendered
-    - `render head` () when the days of the week are rendered
-    - `change` (date) when there is any change to the date of the calendar
-    - `change month` (month) when the month of the calendar is changed
-    - `change year` (year) when the year of the calendar is changed
+- `render` () when the calendar is rendered
+- `render head` () when the days of the week are rendered
+- `change` (date) when there is any change to the date of the calendar
+- `change month` (month) when the month of the calendar is changed
+- `change year` (year) when the year of the calendar is changed
 
 ## API
 
