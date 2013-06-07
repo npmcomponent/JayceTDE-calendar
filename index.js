@@ -10,7 +10,6 @@ templateEl.className = 'calendar-table';
 templateEl.innerHTML = '<thead></thead><tbody></tbody>';
 
 var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-  , months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   , daysInMonthArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 ;
 
@@ -43,7 +42,7 @@ function isLeapYear(year) {
 }
 
 function dayHTML(year, month, day, className) {
-    return '<td data-date="' + [year, month, day].join('-') + '"' + (className !== undefined ? ' class="' + className + '"' : '') + '><div class="day">' + day + '</div></td>';
+    return '<td data-date="' + [year, month, day].join('/') + '"' + (className !== undefined ? ' class="' + className + '"' : '') + '><div class="day">' + day + '</div></td>';
 }
 
 function Calendar(options) {
