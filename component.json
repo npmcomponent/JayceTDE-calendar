@@ -1,16 +1,18 @@
 {
   "name": "calendar",
   "repo": "JayceTDE/calendar",
-  "description": "A plugable calendar",
+  "description": "A basic calendar",
   "version": "0.0.1",
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "component/emitter": "*",
+    "component/in-groups-of": "*"
+  },
   "development": {},
   "license": "MIT",
   "main": "index.js",
   "scripts": [
-    "index.js",
-    "template.js"
+    "index.js"
   ],
   "styles": [
     "calendar.css"

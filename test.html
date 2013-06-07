@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="build/build.css" />
+<style>
+    
+    .calendar {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #999;
+    }
+    
+    .calendar thead {
+        border-bottom: 1px solid #999;
+    }
+    
+    .calendar thead th {
+        text-align: center;
+        font-size: 14px;
+        padding: 5px 0;
+    }
+    
+    .calendar tbody td {
+        text-align: left;
+        width: 50px;
+        height: 50px;
+        vertical-align: top;
+        font-size: 12px;
+        border: 1px solid #CCC;
+    }
+    
+    .calendar tbody td:first-child,
+    .calendar tbody td:last-child {
+        background: #F3F3F3;
+    }
+    
+    .calendar .day {
+        display: inline-block;
+    }
+    
+</style>
+
+</head>
+<body>
+
+<a id="pYear">Year -</a> |
+<a id="pMonth">Month -</a> |
+<a id="nMonth">Month +</a> |
+<a id="nYear">Year +</a> &larr; Not part of the calendar, for testing only
+
+<script src="build/build.js"></script>
+<script>
+
+var Calendar = require('calendar')
+  , cal = new Calendar({ headLength: 3 })
+  , log = document.createElement('div')
+;
+    
+cal.el.className += ' calendar';
+    
+function listener(obj, ev) {
+    obj.on(ev, function () {
+        var el = document.createElement('div');
+        el.innerHTML = ev + ' - ' + JSON.stringify(Array.prototype.slice.call(arguments));
+        log.insertBefore(el, log.firstChild);
+    });
+}
+
+log.innerHTML = '--- Events ---';
+
+listener(cal, 'change');
+listener(cal, 'change year');
+listener(cal, 'change month');
+listener(cal, 'render');
+listener(cal, 'render head');
+    
+document.body.appendChild(cal.el);
+document.body.appendChild(log);
+    
+document.getElementById('pYear').onclick = cal.prevYear.bind(cal);
+document.getElementById('pMonth').onclick = cal.prevMonth.bind(cal);
+document.getElementById('nMonth').onclick = cal.nextMonth.bind(cal);
+document.getElementById('nYear').onclick = cal.nextYear.bind(cal);
+
+</script>
+
+</body>
+</html>
