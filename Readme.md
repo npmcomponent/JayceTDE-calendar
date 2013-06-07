@@ -74,6 +74,7 @@ Renders the calendar. Called internally when the date is changed using the above
 ### Calendar#renderHead()
 
 Renders the days of the week. Called when initialized.
+
 To change the length each day, change Calendar#options.headLength, and call Calendar#renderHead()
     
 ## License
