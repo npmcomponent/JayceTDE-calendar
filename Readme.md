@@ -34,27 +34,27 @@ document.body.appendChild(cal.el);
 
 ### new Calendar(options)
 
-    Initialize a new Calendar
+Initialize a new Calendar
 
 #### options.date
 
-    Initial date to render. defaults to `new Date`
+Initial date to render. defaults to `new Date`
 
 #### options.headLength
 
-    Length of the week day names. defaults to `2` (ex: 'Sunday' -> 'Su')
+Length of the week day names. defaults to `2` (ex: 'Sunday' -> 'Su')
 
 ### Calendar#setDate(date)
 
-    Render the calendar for the given `date`. If a string is used, it will be parsed with `new Date(str)`
+Render the calendar for the given `date`. If a string is used, it will be parsed with `new Date(str)`
     
 ### Calendar#setMonth(month)
 
-    Set the `month` of the calendar's current date and re-render. 0 - January, 11 - December
+Set the `month` of the calendar's current date and re-render. 0 - January, 11 - December
 
 ### Calendar#setYear(year)
 
-    Set the `year` of the calendar's current date and re-render.
+Set the `year` of the calendar's current date and re-render.
     
 ### Calendar#nextMonth()
 ### Calendar#prevMonth()
@@ -63,12 +63,12 @@ document.body.appendChild(cal.el);
 
 ### Calendar#render()
 
-    Renders the calendar. Called internally when the date is changed using the above methods
+Renders the calendar. Called internally when the date is changed using the above methods
     
 ### Calendar#renderHead()
 
-    Renders the days of the week. Called when initialized.
-    To change the length each day, change Calendar#options.headLength, and call Calendar#renderHead()
+Renders the days of the week. Called when initialized.
+To change the length each day, change Calendar#options.headLength, and call Calendar#renderHead()
     
 ## License
 
