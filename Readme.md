@@ -12,6 +12,7 @@ Additional controls can be added using additional components
 ## Plugins
 
 - [JayceTDE/calendar-select](https://github.com/JayceTDE/calendar-select) - Date selecting
+- [JayceTDE/calendar-controls](https://github.com/JayceTDE/calendar-controls) - Basic controls to change month and year
 
 ## Installation
 
