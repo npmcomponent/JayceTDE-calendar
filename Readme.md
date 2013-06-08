@@ -76,6 +76,12 @@ Renders the calendar. Called internally when the date is changed using the above
 Renders the days of the week. Called when initialized.
 
 To change the length each day, change Calendar#options.headLength, and call Calendar#renderHead()
+
+### Calendar#initEmit()
+
+Emits all change events (`change`, `change month`, `change year`) on the current date
+
+This is useful for initially triggering events after attaching listeners
     
 ## License
 
