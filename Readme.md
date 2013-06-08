@@ -9,6 +9,10 @@ Only 2 Dependencies:
 
 Additional controls can be added using additional components
 
+## Plugins
+
+- [JayceTDE/calendar-select](https://github.com/JayceTDE/calendar-select) - Date selecting
+
 ## Installation
 
     $ component install JayceTDE/calendar
