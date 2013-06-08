@@ -39,6 +39,12 @@
         display: inline-block;
     }
     
+    #cMonth {
+        display: inline-block;
+        text-align: center;
+        width: 100px;
+    }
+    
 </style>
 
 </head>
@@ -46,16 +52,23 @@
 
 <a id="pYear">Year -</a> |
 <a id="pMonth">Month -</a> |
+<span id="cMonth"></span> |
 <a id="nMonth">Month +</a> |
 <a id="nYear">Year +</a> &larr; Not part of the calendar, for testing only
 
 <script src="build/build.js"></script>
 <script>
 
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
 var Calendar = require('calendar')
   , cal = new Calendar({ headLength: 3 })
   , log = document.createElement('div')
+  , cMonth = document.querySelector('#cMonth')
+  , hrTimer
 ;
+    
+cal.render();
     
 cal.el.className += ' calendar';
     
@@ -64,16 +77,32 @@ function listener(obj, ev) {
         var el = document.createElement('div');
         el.innerHTML = ev + ' - ' + JSON.stringify(Array.prototype.slice.call(arguments));
         log.insertBefore(el, log.firstChild);
+        
+        clearTimeout(hrTimer);
+        
+        hrTimer = setTimeout(insertHR, 0);
     });
+}
+    
+function insertHR() {
+    log.insertBefore(document.createElement('HR'), log.firstChild);
 }
 
 log.innerHTML = '--- Events ---';
+    
+insertHR();
 
 listener(cal, 'change');
 listener(cal, 'change year');
 listener(cal, 'change month');
 listener(cal, 'render');
 listener(cal, 'render head');
+
+cal.on('change month', function (month) {
+    cMonth.innerHTML = months[month];
+});
+    
+cal.initEmit();
     
 document.body.appendChild(cal.el);
 document.body.appendChild(log);

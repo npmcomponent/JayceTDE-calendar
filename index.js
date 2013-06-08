@@ -71,7 +71,7 @@ Calendar.prototype.renderHead = function (len) {
         return '<th>' + day.slice(0, self.options.headLength || 2) + '</th>';
     }).join('') + '</tr>';
     
-    return this.emit('render head');
+    return self.emit('render head');
     
 };
 
@@ -136,7 +136,8 @@ Calendar.prototype.setDate = function (date) {
     this
       .emit('change year', date.getFullYear())
       .emit('change month', date.getMonth())
-      .emit('change', date);
+      .emit('change', date)
+    ;
     
     return this.render();
 };
@@ -188,6 +189,14 @@ Calendar.prototype.nextYear = function () {
 
 Calendar.prototype.prevYear = function () {
     return this.setYear(this._date.getFullYear() - 1);
+};
+
+Calendar.prototype.initEmit = function () {
+    this
+      .emit('change year', this._date.getFullYear())
+      .emit('change month', this._date.getMonth())
+      .emit('change', this._date)
+    ;
 };
 
 module.exports = Calendar;
