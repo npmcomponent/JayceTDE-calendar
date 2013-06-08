@@ -9,7 +9,8 @@ var Emitter = require('emitter')
 templateEl.className = 'calendar-table';
 templateEl.innerHTML = '<thead></thead><tbody></tbody>';
 
-var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  , days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   , daysInMonthArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 ;
 
@@ -41,8 +42,13 @@ function isLeapYear(year) {
     ;
 }
 
+function dateAttr(date) {
+    var arr = arguments.length === 1 ? [ date.getFullYear(), date.getMonth() + 1, date.getDate() ] : [ arguments[0], arguments[1] + 1, arguments[2] ];
+    return arr.join('/');
+}
+
 function dayHTML(year, month, day, className) {
-    return '<td data-date="' + [year, month, day].join('/') + '"' + (className !== undefined ? ' class="' + className + '"' : '') + '><div class="day">' + day + '</div></td>';
+    return '<td data-date="' + dateAttr(year, month, day) + '"' + (className !== undefined ? ' class="' + className + '"' : '') + '><div class="day">' + day + '</div></td>';
 }
 
 function Calendar(options) {
@@ -60,6 +66,15 @@ function Calendar(options) {
     this.setDate(this.options.date || new Date());
     
 }
+
+/**
+ * Expose helper methods
+ */
+Calendar.isLeapYear = isLeapYear;
+Calendar.daysInMonth = daysInMonth;
+Calendar.weekDays = days;
+Calendar.months = months;
+Calendar.dateAttr = dateAttr;
 
 Emitter(Calendar.prototype);
 
