@@ -82,6 +82,10 @@ Renders the days of the week. Called when initialized.
 
 To change the length each day, change Calendar#options.headLength, and call Calendar#renderHead()
 
+### Calendar#getElementByDate(date)
+
+Get the `TD` element that matches the `date` argument
+
 ### Calendar#initEmit()
 
 Emits all change events (`change`, `change month`, `change year`) on the current date

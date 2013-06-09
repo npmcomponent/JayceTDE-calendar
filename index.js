@@ -206,6 +206,11 @@ Calendar.prototype.prevYear = function () {
     return this.setYear(this._date.getFullYear() - 1);
 };
 
+Calendar.prototype.getElementByDate = function (date) {
+    date = date instanceof Date ? dateAttr(date) : date;
+    return this._body.querySelector('td[data-date="' + date + '"]');
+};
+
 Calendar.prototype.initEmit = function () {
     this
       .emit('change year', this._date.getFullYear())
