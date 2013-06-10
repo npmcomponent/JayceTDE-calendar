@@ -13,6 +13,8 @@ Additional controls can be added using additional components
 
 - [JayceTDE/calendar-select](https://github.com/JayceTDE/calendar-select) - Date selecting
 - [JayceTDE/calendar-controls](https://github.com/JayceTDE/calendar-controls) - Basic controls to change month and year
+- [JayceTDE/calendar-today](https://github.com/JayceTDE/calendar-today) - Add class `today` to today's current date
+- [JayceTDE/calendar-events](https://github.com/JayceTDE/calendar-events) - Add event indicators to a calendar
 
 ## Installation
 
