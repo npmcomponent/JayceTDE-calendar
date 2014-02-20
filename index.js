@@ -1,7 +1,7 @@
 'use strict';
 
-var Emitter = require('emitter')
-  , inGroupsOf = require('in-groups-of')
+var Emitter = require('component-emitter')
+  , inGroupsOf = require('component-in-groups-of')
   , templateEl = document.createElement('table')
 ;
 
